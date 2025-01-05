@@ -10,13 +10,18 @@ import Kingfisher
 
 class TravelInfoTableViewController: UITableViewController {
 
-    let travel = TravelInfo().travel
+    var travel = TravelInfo().travel
     let adColor: [UIColor] = [.systemPink, .systemGreen, .systemOrange]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        tableView.separatorInset = .init(top: 0, left: 16, bottom: 0, right: 16)
+    }
+    
+    @objc func likeButtonTapped(_ sender: UIButton) {
+        travel[sender.tag].like?.toggle()
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,7 +30,10 @@ class TravelInfoTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
+        
         if travel[indexPath.row].ad == true {
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "adCell", for: indexPath) as! ADTableViewCell
             cell.adButton.setTitle("AD", for: .normal)
             cell.adButton.backgroundColor = .white
@@ -42,10 +50,21 @@ class TravelInfoTableViewController: UITableViewController {
             cell.backgroundColor = adColor.randomElement()
             
             return cell
+            
         } else {
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "TravelInfoTableViewCell", for: indexPath) as! TravelInfoTableViewCell
             designTravelCell(cell, indexPath)
             
+            if let like = travel[indexPath.row].like {
+                cell.likeButton.setImage(UIImage(systemName: like ? "heart.fill" : "heart"), for: .normal)
+            } else {
+                
+            }
+            
+            cell.likeButton.tintColor = .white
+            cell.likeButton.tag = indexPath.row
+            cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
             return cell
         }
         
