@@ -27,7 +27,7 @@ class MagazineInfoTableViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "MagazineInfoTableViewCell", for: indexPath) as! MagazineInfoTableViewCell
 
-        designCell(cell, indexPath)
+        designMagazineCell(cell, indexPath)
         
         return cell
     }
@@ -41,7 +41,7 @@ class MagazineInfoTableViewController: UITableViewController {
 
 
 // UI 업데이트는 Main Thread 에서 진행되어야 하니까
-@MainActor func designCell(_ cell: MagazineInfoTableViewCell,_ indexPath: IndexPath) {
+@MainActor func designMagazineCell(_ cell: MagazineInfoTableViewCell,_ indexPath: IndexPath) {
     let magazine = MagazineInfo().magazine
     
     let row = magazine[indexPath.row]

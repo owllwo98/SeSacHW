@@ -20,6 +20,7 @@
 		5E0ECE0B2D27F771001E4F10 /* MagazineInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0ECE0A2D27F771001E4F10 /* MagazineInfoTableViewCell.swift */; };
 		5E0ECE202D29911D001E4F10 /* TravelInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0ECE1F2D29911D001E4F10 /* TravelInfoTableViewController.swift */; };
 		5E0ECE222D299671001E4F10 /* TravelInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0ECE212D299671001E4F10 /* TravelInfoTableViewCell.swift */; };
+		5E0ECE242D2AB233001E4F10 /* ADTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0ECE232D2AB233001E4F10 /* ADTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		5E0ECE0A2D27F771001E4F10 /* MagazineInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineInfoTableViewCell.swift; sourceTree = "<group>"; };
 		5E0ECE1F2D29911D001E4F10 /* TravelInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoTableViewController.swift; sourceTree = "<group>"; };
 		5E0ECE212D299671001E4F10 /* TravelInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoTableViewCell.swift; sourceTree = "<group>"; };
+		5E0ECE232D2AB233001E4F10 /* ADTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				5E0ECDED2D27F210001E4F10 /* AppDelegate.swift */,
 				5E0ECDEF2D27F210001E4F10 /* SceneDelegate.swift */,
 				5E0ECDF12D27F210001E4F10 /* ViewController.swift */,
+				5E0ECE232D2AB233001E4F10 /* ADTableViewCell.swift */,
 				5E0ECDF32D27F210001E4F10 /* Main.storyboard */,
 				5E0ECE212D299671001E4F10 /* TravelInfoTableViewCell.swift */,
 				5E0ECE1F2D29911D001E4F10 /* TravelInfoTableViewController.swift */,
@@ -164,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E0ECE242D2AB233001E4F10 /* ADTableViewCell.swift in Sources */,
 				5E0ECDF22D27F210001E4F10 /* ViewController.swift in Sources */,
 				5E0ECE0B2D27F771001E4F10 /* MagazineInfoTableViewCell.swift in Sources */,
 				5E0ECE092D27F6F0001E4F10 /* MagazineInfoTableViewController.swift in Sources */,

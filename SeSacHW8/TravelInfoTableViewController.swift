@@ -6,84 +6,127 @@
 //
 
 import UIKit
+import Kingfisher
 
 class TravelInfoTableViewController: UITableViewController {
 
+    let travel = TravelInfo().travel
+    let adColor: [UIColor] = [.systemPink, .systemGreen, .systemOrange]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return travel.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        if travel[indexPath.row].ad == true {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "adCell", for: indexPath) as! ADTableViewCell
+            cell.adButton.setTitle("AD", for: .normal)
+            cell.adButton.backgroundColor = .white
+            cell.adButton.titleLabel?.font = .systemFont(ofSize: 12, weight: .bold)
 
-        // Configure the cell...
-
-        return cell
+            cell.adButton.layer.cornerRadius = 5
+            cell.adButton.setTitleColor(.black, for: .normal)
+            
+            cell.adTextLabel.textAlignment = .center
+            cell.adTextLabel.font = .systemFont(ofSize: 16, weight: .bold)
+            cell.adTextLabel.text = travel[indexPath.row].title
+            cell.adTextLabel.numberOfLines = 3
+            cell.layer.cornerRadius = 5
+            cell.backgroundColor = adColor.randomElement()
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TravelInfoTableViewCell", for: indexPath) as! TravelInfoTableViewCell
+            designTravelCell(cell, indexPath)
+            
+            return cell
+        }
+        
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if travel[indexPath.row].ad == true {
+            return 80
+        } else {
+            return 140
+        }
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+}
+
+
+@MainActor func designTravelCell(_ cell: TravelInfoTableViewCell,_ indexPath: IndexPath) {
+    let travel = TravelInfo().travel
+    
+    let row = travel[indexPath.row]
+    
+    let numberFormat  = NumberFormatter()
+    numberFormat.numberStyle = .decimal
+    
+    // if let / guard let 만 쓰다가 다양한 방법이 있을까 고민하다보니 좀 이상한? 느낌입니다,
+    do {
+        let title = try unWrap(row.title)
+        cell.titleLabel.text = title
+    } catch {
+        cell.titleLabel.text = "글자가 없어요"
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    do {
+        let save = try unWrap(row.save)
+        let result = numberFormat.string(from: NSNumber(value: save))
+        guard let result else {
+            print("result nil값 발생")
+            return
+        }
+        cell.saveLabel.text = "저장 " + result
+    } catch {
+        cell.saveLabel.text = "글자가 없어용"
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    do {
+        let description = try unWrap(row.description)
+        cell.descriptionLabel.text = description
+    } catch {
+        cell.descriptionLabel.text = "글자가 없어용"
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    guard let travelImage = row.travel_image else {
+        cell.travelImageView.image = UIImage(systemName: "star")
+        return
     }
-    */
+    
+    let url = URL(string: travelImage)
+    cell.travelImageView.kf.setImage(with: url)
+    cell.travelImageView.contentMode = .scaleAspectFill
+    cell.travelImageView.layer.cornerRadius = 5
+    
+    cell.titleLabel.font = .systemFont(ofSize: 16, weight: .black)
+    cell.titleLabel.numberOfLines = 2
+    
+    cell.descriptionLabel.font = .systemFont(ofSize: 12, weight: .semibold)
+    cell.descriptionLabel.textColor = .gray
+    cell.descriptionLabel.numberOfLines = 2
+    
+    cell.saveLabel.textColor = .gray
+    cell.saveLabel.font = .systemFont(ofSize: 8, weight: .regular)
+    
+}
 
+enum unWrapError: Error {
+    case unWrapError
+}
+
+func unWrap<T> (_ optional: T?) throws -> T {
+    guard let value = optional else {
+        throw unWrapError.unWrapError
+    }
+    return value
 }
