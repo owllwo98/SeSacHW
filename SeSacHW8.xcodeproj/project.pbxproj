@@ -21,6 +21,10 @@
 		5E0ECE202D29911D001E4F10 /* TravelInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0ECE1F2D29911D001E4F10 /* TravelInfoTableViewController.swift */; };
 		5E0ECE222D299671001E4F10 /* TravelInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0ECE212D299671001E4F10 /* TravelInfoTableViewCell.swift */; };
 		5E0ECE242D2AB233001E4F10 /* ADTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0ECE232D2AB233001E4F10 /* ADTableViewCell.swift */; };
+		5E0ECE262D2AD3D0001E4F10 /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0ECE252D2AD3D0001E4F10 /* ShoppingTableViewController.swift */; };
+		5E0ECE282D2AD407001E4F10 /* ShoppingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0ECE272D2AD407001E4F10 /* ShoppingInfo.swift */; };
+		5E0ECE2A2D2AD598001E4F10 /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0ECE292D2AD598001E4F10 /* ShoppingTableViewCell.swift */; };
+		5E0ECE2C2D2AD691001E4F10 /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0ECE2B2D2AD691001E4F10 /* ShoppingListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,10 @@
 		5E0ECE1F2D29911D001E4F10 /* TravelInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoTableViewController.swift; sourceTree = "<group>"; };
 		5E0ECE212D299671001E4F10 /* TravelInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoTableViewCell.swift; sourceTree = "<group>"; };
 		5E0ECE232D2AB233001E4F10 /* ADTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTableViewCell.swift; sourceTree = "<group>"; };
+		5E0ECE252D2AD3D0001E4F10 /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
+		5E0ECE272D2AD407001E4F10 /* ShoppingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingInfo.swift; sourceTree = "<group>"; };
+		5E0ECE292D2AD598001E4F10 /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
+		5E0ECE2B2D2AD691001E4F10 /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +84,14 @@
 				5E0ECDEF2D27F210001E4F10 /* SceneDelegate.swift */,
 				5E0ECDF12D27F210001E4F10 /* ViewController.swift */,
 				5E0ECE232D2AB233001E4F10 /* ADTableViewCell.swift */,
+				5E0ECE292D2AD598001E4F10 /* ShoppingTableViewCell.swift */,
 				5E0ECDF32D27F210001E4F10 /* Main.storyboard */,
+				5E0ECE252D2AD3D0001E4F10 /* ShoppingTableViewController.swift */,
+				5E0ECE2B2D2AD691001E4F10 /* ShoppingListTableViewCell.swift */,
 				5E0ECE212D299671001E4F10 /* TravelInfoTableViewCell.swift */,
 				5E0ECE1F2D29911D001E4F10 /* TravelInfoTableViewController.swift */,
 				5E0ECE0A2D27F771001E4F10 /* MagazineInfoTableViewCell.swift */,
+				5E0ECE272D2AD407001E4F10 /* ShoppingInfo.swift */,
 				5E0ECE082D27F6F0001E4F10 /* MagazineInfoTableViewController.swift */,
 				5E0ECDF62D27F212001E4F10 /* Assets.xcassets */,
 				5E0ECDF82D27F212001E4F10 /* LaunchScreen.storyboard */,
@@ -168,6 +180,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E0ECE242D2AB233001E4F10 /* ADTableViewCell.swift in Sources */,
+				5E0ECE2A2D2AD598001E4F10 /* ShoppingTableViewCell.swift in Sources */,
+				5E0ECE282D2AD407001E4F10 /* ShoppingInfo.swift in Sources */,
+				5E0ECE2C2D2AD691001E4F10 /* ShoppingListTableViewCell.swift in Sources */,
+				5E0ECE262D2AD3D0001E4F10 /* ShoppingTableViewController.swift in Sources */,
 				5E0ECDF22D27F210001E4F10 /* ViewController.swift in Sources */,
 				5E0ECE0B2D27F771001E4F10 /* MagazineInfoTableViewCell.swift in Sources */,
 				5E0ECE092D27F6F0001E4F10 /* MagazineInfoTableViewController.swift in Sources */,
